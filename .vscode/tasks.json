@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build --release",
+            "type": "shell",
+            "command": "cargo build --release --target i686-pc-windows-msvc",
+            "presentation": {
+                "clear": true,
+                "focus": true
+            }
+        },
+        {
+            "label": "check",
+            "type": "shell",
+            "command": "cargo check --target i686-pc-windows-msvc",
+            "presentation": {
+                "clear": true,
+                "focus": true
+            }
+        },
+        {
+            "label": "lints",
+            "type": "shell",
+            "command": "cargo clippy --no-deps --target i686-pc-windows-msvc",
+            "presentation": {
+                "clear": true,
+                "focus": true
+            }
+        },
+        {
+            "label": "fmt",
+            "type": "shell",
+            "command": "cargo fmt",
+            "presentation": {
+                "clear": true,
+                "focus": true
+            }
+        },
+        {
+            "label": "cargo build --release & copy",
+            "type": "shell",
+            "command": "Copy-Item 'C:/Users/Admin/Projects/cargo/target/i686-pc-windows-msvc/release/tes3_lua.dll' -Destination 'C:/Users/Admin/Games/Morrowind/Data Files/MWSE/lib/tes3_lua.dll'",
+            "dependsOn": [
+                "build --release"
+            ],
+            "presentation": {
+                "clear": false,
+                "focus": true
+            }
+        },
+    ]
+}

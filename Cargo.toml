@@ -1,0 +1,28 @@
+[package]
+name = "tes3_lua"
+version = "0.2.0"
+edition = "2024"
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+panic = "abort"
+strip = true
+
+[lib]
+name = "tes3_lua"
+crate-type = ["cdylib"]
+
+[dependencies]
+mimalloc = { version = "^0.1", default-features = false }
+
+[dependencies.tes3]
+git = "https://github.com/Greatness7/tes3"
+branch = "lua"
+# path = "../tes3"
+default-features = false
+features = ["esp", "nightly", "simd", "lua"]
+
+[dependencies.mlua]
+version = "^0.10"
+features = ["module", "luajit"]
