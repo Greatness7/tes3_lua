@@ -31,6 +31,8 @@ jobs:
             binary: tes3_lua.dll
             archive: windows-latest.zip
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@nightly
